@@ -3,3 +3,13 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+#para que tome la ruta y se visualice al momento de ejecutar
+#php bin/console debug:router
+fallback:
+    path: /api/product
+    # controller: App\Infrastructure\Http\Controller\ProductController::create
+    controller: App\UI\Http\Controller\ProductController::create
+    methods: [POST]
+
+    
