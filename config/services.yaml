@@ -6,6 +6,33 @@
 parameters:
 
 services:
+
+    
+    #synfony deberia detectar los servicios automaticamente
+    # pero por si acaso, es mejor colocar esto.
+    #registro del adaptador como servicio
+    App\Infrastructure\Persistence\Doctrine\ProductRepository:
+        # autowire: true
+        # autoconfigure: true
+        public: true
+        alias: App\Domain\Product\Repository\ProductRepositoryInterface
+
+    #handler creado como servicio
+    App\Application\Product\Handler\CreateProductHandler:
+        # autowire: true
+        autoconfigure: true
+        public: true
+    
+    #servicio para el correo
+    App\Infrastructure\Notification\SmtpEmailSender:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    App\Domain\Notification\EmailSenderInterface: '@App\Infrastructure\Notification\SmtpEmailSender'
+    #si quisieramos usar otro proveedor seria cambiando lo ultimo
+    #por ejemplo '@App\Infrastructure\Notification\SendGridEmailSender'
+        
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
