@@ -1,0 +1,34 @@
+Base de datos: test_inventario
+user: root
+password: 1234
+
+Api: http://127.0.0.1:8000/api/product
+Metodo: POST
+
+Json
+{
+  "id": "prod-001",
+  "name": "Camiseta",
+  "description": "Camiseta de algodón",
+  "basePrice": 19.99,
+  "stock": 50,
+  "variants": [
+    {
+      "id": "var-001",
+      "color": "Rojo",
+      "size": "M",
+      "price": 21.99,
+      "stock": 10,
+      "image": "camiseta-roja-m.jpg"
+    },
+    {
+      "id": "var-002",
+      "color": "Azul",
+      "size": "L",
+      "price": 22.99,
+      "stock": 5,
+      "image": "camiseta-azul-l.jpg"
+    }
+  ]
+}
+
